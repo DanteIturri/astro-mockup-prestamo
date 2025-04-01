@@ -11,21 +11,55 @@ interface Props {
   totalMoney?: number;
 }
 const { icon, title, countActive, totalMoney } = Astro.props;
+
+const sizeIcon = 70;
+// Calculate percentage if countActive is provided
+const percentage = countActive
+  ? Math.round((countActive.active / countActive.total) * 100)
+  : null;
+const heightIcon = percentage ? `${percentage}%` : '100%';
 ---
 
 <article class="card-info">
   <div class="card-info-icon">
-    <Icon name={icon} width={26} height={26} />
+    <Icon class={'icon'} name={icon} width={sizeIcon} height={heightIcon} color={'#5AC0AF'} />
   </div>
   <div class="card-info-content">
-      {
-        countActive && (
-          <div class="card-info-count">
+    {
+      countActive && (
+        <div class="card-info-count">
+          <p>
             {countActive.active} de {countActive.total}
-          </div>
-        )
-      }
-      {totalMoney && <div class="card-info-money">${totalMoney}</div>}
-      <div class="card-info-title">{title}</div>
+          </p>
+        </div>
+      )
+    }
+    {
+      totalMoney && (
+        <div class="card-info-money">
+          <p>${totalMoney}</p>
+        </div>
+      )
+    }
+    <div class="card-info-title">{title}</div>
   </div>
 </article>
+
+<style>
+  .card-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    & .card-info-count,
+    .card-info-money {
+      & p {
+        font-size: 1.375rem;
+        font-weight: 500;
+      }
+    }
+    & .card-info-title {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+  }
+</style>
