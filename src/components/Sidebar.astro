@@ -1,0 +1,70 @@
+---
+import Profile from './Profile.astro';
+import SidebarItem from './SidebarItem.astro';
+import navLink from '../json/links-sidebar.json';
+---
+
+<section id="sidebar" class="sidebar">
+  <article class="profile">
+    <!-- <img src="" alt=""> -->
+    <Profile name="User" role="Administrador" />
+  </article>
+  <nav class="nav-vertical">
+    {
+      navLink.map((item) => {
+        return (
+          <SidebarItem title={item.title} icon={item.icon} link={item.url} />
+        );
+      })
+    }
+  </nav>
+</section>
+
+<script>
+  const sidebar = document.querySelector('#sidebar') as HTMLElement;
+
+  let isMouseOver = false;
+
+  let timeOut = setTimeout(() => {
+    if (!isMouseOver) {
+      sidebar.classList.remove('show-scroll-bar');
+    }
+  }, 1000);
+
+  sidebar?.addEventListener('mouseenter', () => {
+    isMouseOver = true;
+    sidebar.classList.add('show-scroll-bar');
+  });
+
+  sidebar?.addEventListener('scroll', () => {
+    clearTimeout(timeOut);
+    sidebar.classList.add('show-scroll-bar');
+  });
+
+  sidebar?.addEventListener('mouseleave', () => {
+    isMouseOver = false;
+    sidebar.classList.remove('show-scroll-bar');
+    clearTimeout(timeOut);
+  });
+</script>
+
+<style>
+  .sidebar {
+    width: 100%;
+    height: 100%;
+    padding-left: 1rem;
+    overflow: hidden;
+    transition: overflow 0.3s ease-in-out;
+    border-right: 1px solid #232d34;
+    & .nav-vertical {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .show-scroll-bar {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #cccccc7e transparent;
+  }
+</style>

@@ -1,0 +1,25 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  title: string;
+  icon: string;
+  link: string;
+}
+const { title, icon, link = '#' } = Astro.props;
+---
+
+<a class="item" href={link}
+  ><Icon name={icon} width={30} height={30} />{title}</a
+>
+
+<style>
+  .item {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 700;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+  }
+</style>
