@@ -3,13 +3,28 @@ import { Icon } from 'astro-icon/components';
 interface Props {
   text: string;
   icon?: string;
-  color?: string;
+  bg_color?: string;
+  text_color?: string;
 }
- const { text, icon, color } = Astro.props;
+ const { text, icon, bg_color, text_color } = Astro.props;
 ---
 
-<button>{
-  icon && <Icon name={icon} width={10} height={10} color={color} />
+<button class="button" style={`background-color: ${bg_color}; color: ${text_color};`}>
+  {
+  icon && <Icon name={icon} width={16} height={16} color={text_color} />
   }
   {text}
 </button>
+
+<style>
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.625rem;
+    padding: 0.625rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+</style>

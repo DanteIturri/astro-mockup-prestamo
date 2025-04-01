@@ -3,18 +3,46 @@ import Nav from './Navbar.astro';
 import Notification from './Notification.astro';
 
 const button1 = {
-  text: 'Ver más',
-  icon:"instagram"
+  text: 'Síguenos',
+  icon: 'instagram',
+};
+const button2 = {
+  text: 'Ayuda',
+};
+const button3 = {
+  text: 'Ver tutoriales',
+};
+const button4 = {
+  text: 'Comprar',
 };
 ---
 
 <section class="content">
   <Nav />
-  <Notification icon='bell' description='hola' button={button1}/>
+  <article class="notifications">
+    <Notification
+      icon="tags"
+      bg_color="#145955"
+      description="Siguenos en instagram y opten un 50% de descuento en tu primer mes."
+      button1={button1}
+      button2={button2}
+    />
+    <Notification
+      icon="info"
+      bg_color="#5f4237"
+      description="Te quedan 5 días para probar el sistema!"
+      button1={button3}
+      button2={button4}
+    />
+  </article>
 </section>
 
 <style>
   .content {
     padding-left: 1rem;
+    & .notifications {
+      display: grid;
+      gap: 0.5rem
+    }
   }
 </style>

@@ -1,34 +1,51 @@
 ---
 import { Icon } from 'astro-icon/components';
-import  Button  from './Button.astro';
+import Button from './Button.astro';
 
 interface Props {
   icon: string;
   description: string;
-  button: {
+  bg_color?: string;
+  button1: {
     text: string;
     icon?: string;
-  }
+  };
+  button2: {
+    text: string;
+    icon?: string;
+  };
 }
 
-const { icon, description, button } = Astro.props;
+const { icon, description,bg_color, button1, button2 } = Astro.props;
 ---
 
-<article class="notification">
+<article class="notification" style={`background: ${bg_color};`}>
   <div class="notification-message">
-    <Icon name={icon} width={20} height={20} />
+    <Icon name={icon} width={26} height={26} />
     <p>{description}</p>
   </div>
   <div class="actions">
-    <Button text={button.text} icon={button.icon} color="#000" />
+    <Button text={button1.text} icon={button1.icon} text_color="#fff" bg_color='#000'/>
+    <Button text={button2.text} icon={button2.icon} text_color="#fff" bg_color='#000'/>
   </div>
 </article>
 
 <style>
-.notification {
-  display: flex;
-  & .notification-message {
-    display: flex;;
+  .notification {
+    width: max-content;
+    display: flex;
+    padding: 0.625rem 0.75rem;
+    border-radius: 0.625rem;
+    & .notification-message {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-right: 2rem;
+    }
+    & .actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-right: 0.5rem;
+    }
   }
-}
 </style>
