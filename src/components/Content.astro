@@ -1,0 +1,20 @@
+---
+import Nav from './Navbar.astro';
+import Notification from './Notification.astro';
+
+const button1 = {
+  text: 'Ver más',
+  icon:"instagram"
+};
+---
+
+<section class="content">
+  <Nav />
+  <Notification icon='bell' description='hola' button={button1}/>
+</section>
+
+<style>
+  .content {
+    padding-left: 1rem;
+  }
+</style>

@@ -1,0 +1,34 @@
+---
+import { Icon } from 'astro-icon/components';
+import  Button  from './Button.astro';
+
+interface Props {
+  icon: string;
+  description: string;
+  button: {
+    text: string;
+    icon?: string;
+  }
+}
+
+const { icon, description, button } = Astro.props;
+---
+
+<article class="notification">
+  <div class="notification-message">
+    <Icon name={icon} width={20} height={20} />
+    <p>{description}</p>
+  </div>
+  <div class="actions">
+    <Button text={button.text} icon={button.icon} color="#000" />
+  </div>
+</article>
+
+<style>
+.notification {
+  display: flex;
+  & .notification-message {
+    display: flex;;
+  }
+}
+</style>

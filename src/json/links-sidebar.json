@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Resume",
+    "icon": "resume",
+    "url": "/"
+  },
+  {
+    "title": "Solicitudes",
+    "icon": "solicitudes",
+    "url": "/"
+  },
+  {
+    "title": "Clientes",
+    "icon": "clientes",
+    "url": "/"
+  },
+  {
+    "title": "Prestamos",
+    "icon": "prestamos",
+    "url": "/"
+  },
+  {
+    "title": "Pagos",
+    "icon": "pagos",
+    "url": "/"
+  },
+  {
+    "title": "Caja",
+    "icon": "caja",
+    "url": "/"
+  },
+  {
+    "title": "Cartera",
+    "icon": "wallet",
+    "url": "/"
+  },
+  {
+    "title": "Mapa",
+    "icon": "map",
+    "url": "/"
+  },
+  {
+    "title": "Ruta",
+    "icon": "rute",
+    "url": "/"
+  },
+  {
+    "title": "Reportes",
+    "icon": "reportes",
+    "url": "/"
+  },
+  {
+    "title": "Configuracion",
+    "icon": "config",
+    "url": "/"
+  },
+  {
+    "title": "Seguridad",
+    "icon": "seguridad",
+    "url": "/"
+  }
+]

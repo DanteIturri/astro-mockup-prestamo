@@ -1,0 +1,19 @@
+---
+import Sidebar from './Sidebar.astro'
+import Content from './Content.astro'
+---
+
+
+<main class="container">
+  <Sidebar />
+  <Content />
+</main>
+
+<style>
+  .container {
+    width: 100dvw;
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
+</style>

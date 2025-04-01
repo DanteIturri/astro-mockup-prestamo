@@ -1,0 +1,53 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const colorIconButtom = '#fff';
+const colorIcon = '#000';
+const sizeIcon = 24;
+const sizeIconButtom = 24;
+
+---
+
+<nav class="nav">
+  <button class="btn-icon"><Icon name="bell" color={colorIconButtom} width={sizeIcon} height={sizeIcon}/> </button>
+  <button class="btn-icon"><Icon name="sun" color={colorIconButtom} width={sizeIcon} height={sizeIcon}/></button>
+  <button class="btn"><Icon name="whatsapp" color={colorIcon} width={sizeIconButtom} height={sizeIconButtom} />WhatsApp</button>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    padding: 1rem;
+    border-bottom: 0.125rem solid #232d34;
+    margin-bottom: 2rem;
+    & button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      margin:0;
+    }
+    & .btn-icon {
+      width: min-content;
+      border: 1px solid #eee;
+      padding: 0.5rem;
+      border-radius: 50%;
+    }
+
+    & .btn {
+      height: min-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      gap: 0.375rem;
+      background-color: #fafafa;
+      padding: 0.5rem 1rem;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 0.5rem;
+    }
+  }
+</style>
